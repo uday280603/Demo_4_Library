@@ -1,16 +1,16 @@
 package com.ro.Demo_4_Library.Entity;
 
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.Size;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.ArrayList;
+import java.util.List;
 
 @Entity
 @NoArgsConstructor
@@ -43,4 +43,7 @@ public class Author {
 
 
     private int authorAge;
+
+    @OneToMany(mappedBy = "author")
+    private List<Book> books = new ArrayList<>();
 }
